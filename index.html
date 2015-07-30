@@ -19,23 +19,23 @@
      MP.api.ready(function() {
         /*  First Chart */
       
-        var first_chart = MP.api.events('Game Played', 'Level Completed', {
+        var first_chart = MP.api.events('game_details_pageload', 'game_download_start', {
             from: moment().subtract(1, 'months'),
             unit: 'day'
         });
      
-        var second_chart = MP.api.events('App Install', 'App Open', {
+        var second_chart = MP.api.events('Notification Sent', 'Notification Opened', {
             from: moment().subtract(2, 'months'),
             unit: 'day'
         });
        
        
-        var third_chart = MP.api.events('Character Created', 'Session End', {
+        var third_chart = MP.api.events('3_card_icon_tap', 'game_download_start', {
             from: moment().subtract(1, 'months'),
             unit: 'day'
         });
         
-        var fourth_chart = MP.api.events('Tutorial Exited', 'Registration Complete', {
+        var fourth_chart = MP.api.events('open_app_store', {
             from: moment().subtract(2, 'months'),
             unit: 'day'
         });
@@ -57,12 +57,12 @@
                 });
                 
                 $('<div class="third"></div>').css({'width':'460px', 'float':'left'}).appendTo('body').MPChart({
-                    chartType: 'pie',
+                    chartType: 'line',
                     data: thirdChartData
                 });
                 
                 $('<div class="fourth"></div>').css({'width':'460px', 'float':'right'}).appendTo('body').MPChart({
-                    chartType: 'bar',
+                    chartType: 'line',
                     data: fourthChartData
                 });
                 //$('.mixpanel-platform-multi_selector').css({'clear':'both'});
